@@ -1,14 +1,15 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Button, Image, SafeAreaView, Text, View } from 'react-native';
+import { logo } from "../assets/logo.png"
 
 const Home = ({ navigation }) => {
     return (
         <SafeAreaView className="flex-1 mt-10 bg-white">
-            <View className="">
-                <Image source={{ uri: 'https://i.ibb.co/gtB5sR9/logo.png' }} className="w-76 h-96" />
+            <View className="mt-10">
+                <Image source={logo} className="w-96 h-32" />
 
-                <Text>Welcome to Revinns Ltd</Text>
+                <Text className='text-xl font-semibold'>Welcome to Revinns Ltd</Text>
 
                 <Button
                     onPress={() => navigation.navigate('SignIn')}
