@@ -5,7 +5,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
-import { Text, View } from 'react-native';
+
+const colors = {
+  primary: '#FF0000',
+  secondary: '#00FF00',
+  background: '#FFFFFF',
+  text: '#000000',
+};
 
 
 const Stack = createNativeStackNavigator();

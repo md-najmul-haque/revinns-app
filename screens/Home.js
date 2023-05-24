@@ -5,22 +5,31 @@ import { logo } from "../assets/logo.png"
 
 const Home = ({ navigation }) => {
     return (
-        <SafeAreaView className="flex-1 mt-10 bg-white">
-            <View className="mt-10">
-                <Image source={logo} className="w-96 h-32" />
+        <SafeAreaView className="flex-1 justify-center items-center bg-white">
+            <View>
+                <Image source={require('../assets/logo.png')} className="w-96 h-32" />
 
-                <Text className='text-xl font-semibold'>Welcome to Revinns Ltd</Text>
+                <Text className='text-2xl text-primary font-semibold text-center'>Welcome to Revinns Ltd</Text>
 
-                <Button
-                    onPress={() => navigation.navigate('SignIn')}
-                    title="Sing In"
-                    className=""
-                />
-                <Button
-                    onPress={() => navigation.navigate('SignUp')}
-                    title="Sign Up"
-                    className="bg-warning ml-3"
-                />
+                <View className='flex-row justify-center  mt-10  '>
+                    <Button
+                        onPress={() => navigation.navigate('SignIn')}
+                        title="Sing In"
+                        color='#02094c'
+                        className="bg-[#02094c] text-xl font-bold"
+                    />
+                    <Button
+                        onPress={() => navigation.navigate('SignUp')}
+                        title="Sign Up"
+                        color="#ff6400"
+                        style={{
+                            backgroundColor: 'red',
+                            borderRadius: 8,
+                            padding: 10,
+                        }}
+                    />
+
+                </View>
 
             </View>
             <StatusBar style="auto" />
