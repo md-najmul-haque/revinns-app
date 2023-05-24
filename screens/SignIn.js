@@ -1,7 +1,7 @@
 import { Button, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react'
 
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -54,7 +54,7 @@ const SignIn = () => {
 
                         <Button title="Login" color='#ff6400' onPress={handleLogin} />
 
-                        <Text className='mt-5 text-center'>Don't have an account? <Text className='text-secondary font-semibold'>Sign Up</Text> </Text>
+                        <Text className='mt-5 text-center'>Don't have an account? <Text className='text-secondary font-semibold' onPress={() => navigation.navigate('SignUp')}>Sign Up</Text> </Text>
 
                     </View>
 

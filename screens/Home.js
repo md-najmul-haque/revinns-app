@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Button, Image, SafeAreaView, Text, View } from 'react-native';
-import { logo } from "../assets/logo.png"
+
 
 const Home = ({ navigation }) => {
     return (
