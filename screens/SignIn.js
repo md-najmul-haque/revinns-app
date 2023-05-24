@@ -19,41 +19,46 @@ const SignIn = () => {
 
 
     return (
-        <SafeAreaView className="flex-1 justify-center items-center bg-white">
-            <View className='mx-5'>
+        <SafeAreaView className="h-screen bg-white">
+            <View className='mx-5 mt-10'>
                 <Image source={require('../assets/logo.png')} className="w-76 h-32" />
 
+                <View className='mt-5'>
 
-                <Text className='text-2xl mb-5 text-primary font-semibold'>Welcome Back!</Text>
+                    <View>
+                        <Text className='text-2xl mb-5 text-primary font-semibold'>Welcome Back!</Text>
 
-                <View>
-                    <TextInput
-                        className='bg-white border border-gray-300 h-10 rounded-md p-2 mb-4'
-                        placeholder="User Name"
-                        onChangeText={text => setEmail(text)}
-                    />
-                    <TextInput
-                        className='bg-white border border-gray-300 h-10 rounded-md p-2 mb-4'
-                        placeholder="Password"
-                        secureTextEntry
-                        onChangeText={text => setPassword(text)}
-                    />
 
-                    <View style={styles.checkboxContainer}>
-                        <TouchableOpacity style={styles.checkbox} onPress={toggleRememberMe}>
-                            {rememberMe ? (
-                                <Text style={styles.checkboxText}>✓</Text>
-                            ) : (
-                                <Text style={styles.checkboxText}></Text>
-                            )}
-                        </TouchableOpacity>
-                        <Text style={styles.label}>Remember Me</Text>
+                        <TextInput
+                            className='bg-white border border-gray-300 h-10 rounded-md p-2 mb-4 min-w-full'
+                            placeholder="User Name"
+                            onChangeText={text => setEmail(text)}
+                        />
+                        <TextInput
+                            className='bg-white border border-gray-300 h-10 rounded-md p-2 mb-4 min-w-full'
+                            placeholder="Password"
+                            secureTextEntry
+                            onChangeText={text => setPassword(text)}
+                        />
+
+                        <View style={styles.checkboxContainer}>
+                            <TouchableOpacity style={styles.checkbox} onPress={toggleRememberMe}>
+                                {rememberMe ? (
+                                    <Text style={styles.checkboxText}>✓</Text>
+                                ) : (
+                                    <Text style={styles.checkboxText}></Text>
+                                )}
+                            </TouchableOpacity>
+                            <Text style={styles.label}>Remember Me</Text>
+                        </View>
+
+                        <Button title="Login" color='#ff6400' onPress={handleLogin} />
+
+                        <Text className='mt-5 text-center'>Don't have an account? <Text className='text-secondary font-semibold'>Sign Up</Text> </Text>
+
                     </View>
 
-                    <Button title="Login" onPress={handleLogin} />
                 </View>
-
-
 
             </View>
         </SafeAreaView>
