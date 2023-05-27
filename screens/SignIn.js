@@ -3,14 +3,38 @@ import React, { useState } from 'react'
 
 const SignIn = ({ navigation }) => {
 
-    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
 
     const handleLogin = () => {
-        // Perform login logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
+
+        const user = {
+            name: userName,
+            password: password
+        }
+
+        // console.log(user)
+
+        fetch(`http://192.168.0.103:5000/api/v1/login`, {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': "application/json"
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                // if (data.status === "success") {
+                //     reset()
+                //     toast.success(data.message)
+                //     localStorage.setItem("token", data.token);
+                //     navigate("/dashboard")
+                // } else {
+                //     toast.error(data.message)
+                // }
+            })
     };
 
     const toggleRememberMe = () => {
@@ -32,7 +56,7 @@ const SignIn = ({ navigation }) => {
                         <TextInput
                             className='bg-white border border-gray-300 h-10 rounded-md p-2 mb-4 min-w-full'
                             placeholder="User Name"
-                            onChangeText={text => setEmail(text)}
+                            onChangeText={text => setUserName(text)}
                         />
                         <TextInput
                             className='bg-white border border-gray-300 h-10 rounded-md p-2 mb-4 min-w-full'

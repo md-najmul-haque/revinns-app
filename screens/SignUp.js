@@ -19,7 +19,7 @@ const SignUp = ({ navigation }) => {
         }
 
         // console.log(user)
-        fetch(`http://localhost:5000/api/v1/user`, {
+        fetch(`http://192.168.0.103:5000/api/v1/user`, {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -27,7 +27,7 @@ const SignUp = ({ navigation }) => {
             }
         })
             .then(res => res.json())
-            .then(user => console.log(user))
+            .then(user => console.log("user created successfully"))
             .catch(error => {
                 console.error('Network request failed:', error);
                 // Handle the error or display an error message
