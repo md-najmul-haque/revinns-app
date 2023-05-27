@@ -7,16 +7,33 @@ const SignUp = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [rememberMe, setRememberMe] = useState(false);
 
     const handleLogin = () => {
-        // Perform login logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
-    };
 
-    const toggleRememberMe = () => {
-        setRememberMe(!rememberMe);
+        const user = {
+            name: userName,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword,
+
+        }
+
+        // console.log(user)
+        fetch(`http://localhost:5000/api/v1/user`, {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': "application/json"
+            }
+        })
+            .then(res => res.json())
+            .then(user => console.log(user))
+            .catch(error => {
+                console.error('Network request failed:', error);
+                // Handle the error or display an error message
+            });
+
+
     };
 
 
@@ -36,7 +53,7 @@ const SignUp = ({ navigation }) => {
                         />
                         <TextInput
                             className='bg-white border border-gray-300 h-10 rounded-md p-2 mb-4 min-w-full'
-                            placeholder="User Name"
+                            placeholder="Email"
                             onChangeText={text => setEmail(text)}
                         />
                         <TextInput
@@ -53,9 +70,9 @@ const SignUp = ({ navigation }) => {
                             onChangeText={text => setConfirmPassword(text)}
                         />
 
-                        <Button title="Login" color='#ff6400' onPress={handleLogin} />
+                        <Button title="Sign Up" color='#ff6400' onPress={handleLogin} />
 
-                        <Text className='mt-5 text-center'>Already have an account? <Text className='text-secondary font-semibold' onPress={() => navigation.navigate('SignIn')}>Sign In</Text> </Text>
+                        <Text className='mt-5 text-center'>Already have an aaa account? <Text className='text-secondary font-semibold' onPress={() => navigation.navigate('SignIn')}>Sign In</Text> </Text>
 
                     </View>
 
