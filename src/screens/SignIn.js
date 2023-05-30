@@ -1,5 +1,6 @@
 import { Button, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react'
+import Toast from 'react-native-toast-message';
 
 const SignIn = ({ navigation }) => {
 
@@ -25,15 +26,16 @@ const SignIn = ({ navigation }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                // if (data.status === "success") {
-                //     reset()
-                //     toast.success(data.message)
-                //     localStorage.setItem("token", data.token);
-                //     navigate("/dashboard")
-                // } else {
-                //     toast.error(data.message)
-                // }
+                if (data.status === "success") {
+                    Toast.show({
+                        type: 'success',
+                        text1: `Hi ${data?.user?.name}`,
+                        text2: data.message
+                    });
+                    navigation.navigate('Dashboard')
+                } else {
+                    toast.error(data.message)
+                }
             })
     };
 
