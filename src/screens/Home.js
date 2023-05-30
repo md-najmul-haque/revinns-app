@@ -16,7 +16,7 @@ const Home = ({ navigation }) => {
                         onPress={() => navigation.navigate('SignIn')}
                         title="Sing In"
                         color='#02094c'
-                        className="bg-[#02094c] text-xl font-bold"
+                        className="bg-[#02094c] text-xl font-bold mr-2"
                     />
                     <Button
                         onPress={() => navigation.navigate('SignUp')}

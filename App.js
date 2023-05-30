@@ -2,16 +2,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './screens/Home';
-import SignIn from './screens/SignIn';
-import SignUp from './screens/SignUp';
 
-const colors = {
-  primary: '#FF0000',
-  secondary: '#00FF00',
-  background: '#FFFFFF',
-  text: '#000000',
-};
+import SignIn from './src/screens/SignIn';
+import SignUp from './src/screens/SignUp';
+import Home from './src/screens/Home';
 
 
 const Stack = createNativeStackNavigator();
