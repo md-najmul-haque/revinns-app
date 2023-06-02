@@ -1,11 +1,16 @@
+
 import { View, Text } from 'react-native'
 import React from 'react'
+import MyDrawer from './MyDrawer';
 
 const Dashboard = () => {
     return (
-        <View>
-            <Text>Dashboard</Text>
-        </View>
+        <>
+            <MyDrawer />
+            {/* <View>
+                <Text>Dashboard</Text>
+            </View> */}
+        </>
     )
 }
 
