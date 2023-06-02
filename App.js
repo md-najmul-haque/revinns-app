@@ -7,7 +7,7 @@ import Toast from 'react-native-toast-message';
 import SignIn from './src/screens/SignIn';
 import SignUp from './src/screens/SignUp';
 import Home from './src/screens/Home';
-import Dashboard from './src/screens/Dashboard';
+import Dashboard from './src/screens/Dashboard/Dashboard';
 
 
 const Stack = createNativeStackNavigator();

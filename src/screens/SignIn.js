@@ -34,7 +34,11 @@ const SignIn = ({ navigation }) => {
                     });
                     navigation.navigate('Dashboard')
                 } else {
-                    toast.error(data.message)
+                    Toast.show({
+                        type: 'error',
+                        text2: data.message
+                    })
+
                 }
             })
     };
