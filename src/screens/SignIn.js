@@ -17,7 +17,7 @@ const SignIn = ({ navigation }) => {
 
         // console.log(user)
 
-        fetch(`http://192.168.0.226:5000/api/v1/login`, {
+        fetch(`http://192.168.0.101:5000/api/v1/login`, {
             method: "POST",
             body: JSON.stringify(user),
             headers: {

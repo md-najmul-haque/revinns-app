@@ -2,22 +2,20 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import React from 'react'
-import DashboardHome from './DashboardHome';
+
 import AppointmentHistory from './AppointmentHistory';
 import Reports from './Reports';
 import Profile from './Profile';
 import ChangePassword from './ChangePassword';
 import ContactUs from './ContactUs';
 import { Text, View } from 'react-native';
+import DashboardHome from './DashboardHome';
 
 const Drawer = createDrawerNavigator();
 
 const MyDrawer = () => {
     return (
         <Drawer.Navigator useLegacyImplementation>
-            <View>
-                <Text>Multicare Hospital</Text>
-            </View>
             <Drawer.Screen name="Home" component={DashboardHome} />
             <Drawer.Screen name="Appointment History" component={AppointmentHistory} />
             <Drawer.Screen name="Reports" component={Reports} />
@@ -25,6 +23,7 @@ const MyDrawer = () => {
             <Drawer.Screen name="ChangePassword" component={ChangePassword} />
             <Drawer.Screen name="ContactUs" component={ContactUs} />
         </Drawer.Navigator>
+
     )
 }
 
