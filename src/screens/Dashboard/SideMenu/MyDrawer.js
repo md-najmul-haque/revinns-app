@@ -1,14 +1,11 @@
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
 import React from 'react'
-
 import AppointmentHistory from './AppointmentHistory';
 import Reports from './Reports';
 import Profile from './Profile';
 import ChangePassword from './ChangePassword';
 import ContactUs from './ContactUs';
-import { Text, View } from 'react-native';
 import DashboardHome from './DashboardHome';
 
 const Drawer = createDrawerNavigator();
