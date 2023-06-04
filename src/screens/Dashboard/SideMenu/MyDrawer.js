@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 
 const MyDrawer = () => {
     return (
-        <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+        <Drawer.Navigator useLegacyImplementation drawerContent={(props) => <DrawerContent {...props} />}>
             <Drawer.Screen name="Home" component={DashboardHome} />
             <Drawer.Screen name="Appointment History" component={AppointmentHistory} />
             <Drawer.Screen name="Reports" component={Reports} />
