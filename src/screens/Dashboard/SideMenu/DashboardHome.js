@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-const DashboardHome = () => {
+const DashboardHome = ({ navigation }) => {
     return (
         <View className="mt-14">
             <View className='flex-row justify-around items-center'>
@@ -19,7 +19,7 @@ const DashboardHome = () => {
             </View>
 
             <View className='flex-row justify-around items-center mt-20'>
-                <View>
+                <View onPress={() => { navigation.navigate('reports') }}>
                     <View className="flex justify-center items-center">
                         <Icon name="file-medical-alt" size={50} color="#02094c" />
                     </View>

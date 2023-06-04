@@ -7,12 +7,13 @@ import Profile from './Profile';
 import ChangePassword from './ChangePassword';
 import ContactUs from './ContactUs';
 import DashboardHome from './DashboardHome';
+import { DrawerContent } from "./DrawerContent"
 
 const Drawer = createDrawerNavigator();
 
 const MyDrawer = () => {
     return (
-        <Drawer.Navigator useLegacyImplementation>
+        <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
             <Drawer.Screen name="Home" component={DashboardHome} />
             <Drawer.Screen name="Appointment History" component={AppointmentHistory} />
             <Drawer.Screen name="Reports" component={Reports} />
