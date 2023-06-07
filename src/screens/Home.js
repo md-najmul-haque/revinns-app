@@ -11,23 +11,22 @@ const Home = ({ navigation }) => {
 
                 <Text className='text-2xl text-primary font-semibold text-center'>Welcome to Revinns Ltd</Text>
 
-                <View className='flex-row justify-center  mt-10  '>
-                    <Button
-                        onPress={() => navigation.navigate('SignIn')}
-                        title="Sing In"
-                        color='#02094c'
-                        className="bg-[#02094c] text-xl font-bold mr-2"
-                    />
-                    <Button
-                        onPress={() => navigation.navigate('SignUp')}
-                        title="Sign Up"
-                        color="#ff6400"
-                        style={{
-                            backgroundColor: 'red',
-                            borderRadius: 8,
-                            padding: 10,
-                        }}
-                    />
+                <View className='flex-row justify-center mt-10  '>
+                    <View className="mr-5 ">
+                        <Button
+                            onPress={() => navigation.navigate('SignIn')}
+                            title="Sing In"
+                            color='#02094c'
+                            className="bg-[#02094c]"
+                        />
+                    </View>
+                    <View>
+                        <Button
+                            onPress={() => navigation.navigate('SignUp')}
+                            title="Sign Up"
+                            color="#ff6400"
+                        />
+                    </View>
 
                 </View>
 
