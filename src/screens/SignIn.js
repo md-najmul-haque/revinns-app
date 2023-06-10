@@ -51,7 +51,7 @@ const SignIn = ({ navigation }) => {
     return (
         <SafeAreaView className="h-screen bg-white">
             <View className='mx-5 mt-10'>
-                <Image source={require('../assets/logo.png')} className="w-76 h-32" />
+                <Image source={require('../assets/logo.jpg')} className="w-76 h-32" />
 
                 <View className='mt-5'>
 
