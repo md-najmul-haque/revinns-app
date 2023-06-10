@@ -2,11 +2,13 @@ import { View, Button, TouchableOpacity, Text } from 'react-native'
 import React from 'react'
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer"
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from "react-native-paper"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const DrawerContent = (props) => {
 
-    const handleSignOut = () => {
-
+    const handleSignOut = async () => {
+        await AsyncStorage.removeItem('token')
+        props.navigation.navigate('/')
     }
 
     return (
