@@ -1,7 +1,8 @@
 import { Button, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react'
 import Toast from 'react-native-toast-message';
-import { Avatar, Caption } from "react-native-paper"
+import { Avatar } from "react-native-paper"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignIn = ({ navigation }) => {
 
@@ -9,7 +10,7 @@ const SignIn = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
 
         const user = {
             name: userName,
@@ -18,7 +19,7 @@ const SignIn = ({ navigation }) => {
 
         // console.log(user)
 
-        fetch(`http://192.168.0.226:5000/api/v1/login`, {
+        await fetch(`http://192.168.0.102:5000/api/v1/login`, {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -33,6 +34,7 @@ const SignIn = ({ navigation }) => {
                         text1: `Hi ${data?.user?.name}`,
                         text2: data.message
                     });
+                    AsyncStorage.setItem("token", data.token);
                     navigation.navigate('Dashboard')
                 } else {
                     Toast.show({
@@ -50,7 +52,7 @@ const SignIn = ({ navigation }) => {
 
 
     return (
-        <SafeAreaView className="flex-1 justify-center items-center h-screen bg-white">
+        <SafeAreaView className="flex-1 justify-center items-center bg-white">
             <View className='mx-5'>
                 <View className='flex-row justify-center items-center mt-2'>
                     <Avatar.Image size={40} className="" source={require('../assets/logo.jpg')} />

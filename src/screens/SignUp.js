@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Image, SafeAreaView, Text, TextInput, View } from 'react-native';
+import { Avatar } from "react-native-paper"
+import Toast from 'react-native-toast-message';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 const SignUp = ({ navigation }) => {
@@ -8,7 +12,7 @@ const SignUp = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
 
         const user = {
             name: userName,
@@ -19,7 +23,7 @@ const SignUp = ({ navigation }) => {
         }
 
         // console.log(user)
-        fetch(`http://192.168.0.226:5000/api/v1/user`, {
+        await fetch(`http://192.168.0.102:5000/api/v1/user`, {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -27,7 +31,23 @@ const SignUp = ({ navigation }) => {
             }
         })
             .then(res => res.json())
-            .then(user => console.log(user))
+            .then(data => {
+                if (data.status === "success") {
+                    Toast.show({
+                        type: 'success',
+                        text1: `Hi ${data?.user?.name}`,
+                        text2: data.message
+                    });
+                    AsyncStorage.setItem("token", data.token);
+                    navigation.navigate('Dashboard')
+                } else {
+                    Toast.show({
+                        type: 'error',
+                        text2: data.message
+                    })
+
+                }
+            })
             .catch(error => {
                 console.error('Network request failed:', error);
                 // Handle the error or display an error message
@@ -38,14 +58,17 @@ const SignUp = ({ navigation }) => {
 
 
     return (
-        <SafeAreaView className="h-screen bg-white">
-            <View className='mx-5 mt-10'>
-                <Image source={require('../assets/logo.jpg')} className="w-76 h-32" />
+        <SafeAreaView className="flex-1 justify-center items-center bg-white mt-12">
+            <View className='mx-5'>
+                <View className='flex-row justify-center items-center mt-2'>
+                    <Avatar.Image size={40} className="" source={require('../assets/logo.jpg')} />
+                    <Text className='text-2xl text-primary font-semibold text-center ml-2'>Bangladesh Multicare Hospital</Text>
+                </View>
 
                 <View className='mt-5'>
 
                     <View>
-                        <Text className='text-2xl mb-5 text-primary font-semibold'>Register Here!</Text>
+                        <Text className='text-2xl mb-5 text-primary text-center font-semibold'>Register Here!</Text>
                         <TextInput
                             className='bg-white border border-gray-300 h-10 rounded-md p-2 mb-4 min-w-full'
                             placeholder="User Name"
